@@ -55,7 +55,7 @@ public class Calculation {
 		}
 		
 		System.out.println(String.format("%.2f", salesTaxes));
-		System.out.println(String.format("%.2f", finalPrice));
+		System.out.println(finalPrice);
 	}
 	
 }

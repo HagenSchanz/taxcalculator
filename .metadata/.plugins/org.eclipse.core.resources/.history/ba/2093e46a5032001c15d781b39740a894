@@ -25,7 +25,6 @@ public class TestCalculationclass {
 		System.out.println("\n\n");
 		
 		//Test following coding assigment I/O 2:
-		
 		ArrayList<Item> Output2= new ArrayList<Item>();
 		Item impChocolate = new Item("imported box of chocolates", new BigDecimal("10.00"), false, true);
 		Item impPerfume = new Item("imported bottle of perfume", new BigDecimal("47.50"), true, true);
@@ -37,7 +36,6 @@ public class TestCalculationclass {
 		System.out.println("\n\n");
 		
 		//Test following coding assigment I/O 3:
-		
 		ArrayList<Item> Output3= new ArrayList<Item>();
 		
 		Item impPerfume2 = new Item("imported bottle of perfume", new BigDecimal("27.99"), true, true);
