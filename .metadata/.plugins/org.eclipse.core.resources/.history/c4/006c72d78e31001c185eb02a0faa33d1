@@ -7,8 +7,6 @@ public class TestItemclass {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//Currentyl no testing for wrong inputs, when using a GUI it might be not needed to catch them
-		
 		//some random testdata, not based on the values from the assigment
 		Item book = new Item("Book", new BigDecimal("10.55"), true, false);
 		Item book2 = new Item("redBook", new BigDecimal("106.75"), false, false);
