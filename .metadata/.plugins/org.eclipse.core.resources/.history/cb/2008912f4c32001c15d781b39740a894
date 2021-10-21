@@ -19,7 +19,7 @@ public class Calculation {
 			if(it.get(i).getBasicTax() == true) {
 				
 				//sets salesTax to price multiplied with baseTaxrate
-				it.get(i).setSalesTax(it.get(i).getPrice().multiply(this.baseTaxrate));
+				it.get(i).setSalesTax((it.get(i).getPrice().multiply(this.baseTaxrate));
 				//added salesTax to price
 				it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getSalesTax()));
 			}

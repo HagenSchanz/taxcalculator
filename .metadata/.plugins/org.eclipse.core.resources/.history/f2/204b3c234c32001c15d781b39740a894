@@ -8,8 +8,6 @@ public class Item {
 	private BigDecimal price;
 	private boolean basicTax;
 	private boolean extendedTax;
-	//added to calculate/print salestax in class Calculation, function printBill
-	private BigDecimal salesTax = new BigDecimal("0.00");
 	
 	public Item(String itemName, BigDecimal itemPrice, boolean bT, boolean eT) {
 		this.Name = itemName;
@@ -56,13 +54,5 @@ public class Item {
 	//taxrates var can be found in calculations
 	public void setExtendedTax(boolean eT) {
 		this.extendedTax = eT;
-	}
-	
-	public BigDecimal getSalesTax() {
-		return this.salesTax;
-	}
-	
-	public void setSalesTax(BigDecimal sT) {
-		this.salesTax = sT;
 	}
 }
