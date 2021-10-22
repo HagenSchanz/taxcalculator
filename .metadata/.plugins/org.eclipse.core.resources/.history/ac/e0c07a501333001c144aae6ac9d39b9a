@@ -33,8 +33,6 @@ public class Calculation {
 			}
 			
 			//add taxes, when all taxvalues are calculated 
-			it.get(i).setSalesTax(roundPrice(it.get(i).getSalesTax()));
-			it.get(i).setExTax(roundPrice(it.get(i).getExTax()));
 			
 			if(it.get(i).getBasicTax() == true) {
 				//added salesTax to price
@@ -46,7 +44,7 @@ public class Calculation {
 				it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getExTax()));
 			}
 			
-			it.get(i).setPrice(roundPrice(it.get(i).getPrice()));
+		//	it.get(i).setPrice(roundPrice(it.get(i).getPrice()));
 		}
 
 
@@ -91,7 +89,7 @@ public class Calculation {
 
 	public BigDecimal roundPrice(BigDecimal price) {
 		
-			BigDecimal toRound = price.round(new MathContext(4,RoundingMode.HALF_UP));
+			BigDecimal toRound = price.round(new MathContext(3,RoundingMode.HALF_UP));
 			return toRound;
 		
 	}

@@ -33,8 +33,6 @@ public class Calculation {
 			}
 			
 			//add taxes, when all taxvalues are calculated 
-			it.get(i).setSalesTax(roundPrice(it.get(i).getSalesTax()));
-			it.get(i).setExTax(roundPrice(it.get(i).getExTax()));
 			
 			if(it.get(i).getBasicTax() == true) {
 				//added salesTax to price

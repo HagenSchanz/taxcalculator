@@ -1,8 +1,6 @@
 package taxcalculator;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Calculation {
@@ -33,8 +31,6 @@ public class Calculation {
 			}
 			
 			//add taxes, when all taxvalues are calculated 
-			it.get(i).setSalesTax(roundPrice(it.get(i).getSalesTax()));
-			it.get(i).setExTax(roundPrice(it.get(i).getExTax()));
 			
 			if(it.get(i).getBasicTax() == true) {
 				//added salesTax to price
@@ -45,8 +41,6 @@ public class Calculation {
 				
 				it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getExTax()));
 			}
-			
-			it.get(i).setPrice(roundPrice(it.get(i).getPrice()));
 		}
 
 
@@ -88,11 +82,5 @@ public class Calculation {
 		//System.out.println(salesTaxes);
 		System.out.println(String.format("%f", finalPrice));
 	}
-
-	public BigDecimal roundPrice(BigDecimal price) {
-		
-			BigDecimal toRound = price.round(new MathContext(4,RoundingMode.HALF_UP));
-			return toRound;
-		
-	}
+	
 }
