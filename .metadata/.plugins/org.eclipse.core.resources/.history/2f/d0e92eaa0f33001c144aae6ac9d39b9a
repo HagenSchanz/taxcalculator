@@ -71,14 +71,10 @@ public class Calculation {
 				salesTaxes = salesTaxes.add(it.get(i).getSalesTax());
 			}
 			
-			if(it.get(i).getExtendedTax() == true) {
-				salesTaxes = salesTaxes.add(it.get(i).getExTax());
-			}
-			
 			finalPrice = finalPrice.add(it.get(i).getPrice()); 
 		}
 		
-		System.out.println(String.format("Sales Taxes: %.2f", salesTaxes));
+		System.out.println(String.format("%.2f", salesTaxes));
 		//System.out.println(salesTaxes);
 		System.out.println(String.format("%.2f", finalPrice));
 	}

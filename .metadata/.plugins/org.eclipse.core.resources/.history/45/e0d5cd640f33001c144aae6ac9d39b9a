@@ -16,11 +16,12 @@ public class Calculation {
 			
 		//foreach not working, for(int i : it)
 		for(int i = 0; i < it.size(); i++){
-			
 			if(it.get(i).getBasicTax() == true) {
 				
 				//sets salesTax to price multiplied with baseTaxrate
 				it.get(i).setSalesTax(it.get(i).getPrice().multiply(this.baseTaxrate));
+				//added salesTax to price
+				it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getSalesTax()));
 			}
 			
 			
@@ -28,19 +29,9 @@ public class Calculation {
 				
 				//sets price to price multiplied with extendedTaxrate
 				it.get(i).setExTax(it.get(i).getPrice().multiply(this.extendedTaxrate));
-			}
-			
-			//add taxes, when all taxvalues are calculated 
-			
-			if(it.get(i).getBasicTax() == true) {
-				//added salesTax to price
-				it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getSalesTax()));
-			}
-			
-			if(it.get(i).getExtendedTax() == true) {
-				
 				it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getExTax()));
 			}
+			
 		}
 
 
@@ -71,14 +62,10 @@ public class Calculation {
 				salesTaxes = salesTaxes.add(it.get(i).getSalesTax());
 			}
 			
-			if(it.get(i).getExtendedTax() == true) {
-				salesTaxes = salesTaxes.add(it.get(i).getExTax());
-			}
-			
 			finalPrice = finalPrice.add(it.get(i).getPrice()); 
 		}
 		
-		System.out.println(String.format("Sales Taxes: %.2f", salesTaxes));
+		System.out.println(String.format("%.2f", salesTaxes));
 		//System.out.println(salesTaxes);
 		System.out.println(String.format("%.2f", finalPrice));
 	}

@@ -78,7 +78,7 @@ public class Calculation {
 			finalPrice = finalPrice.add(it.get(i).getPrice()); 
 		}
 		
-		System.out.println(String.format("Sales Taxes: %.2f", salesTaxes));
+		System.out.println(String.format("%.2f", salesTaxes));
 		//System.out.println(salesTaxes);
 		System.out.println(String.format("%.2f", finalPrice));
 	}
