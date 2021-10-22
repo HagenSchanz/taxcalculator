@@ -60,10 +60,10 @@ public class Calculation {
 			
 			//to add to imported goods, so you don't have to add this to the item name itself anymore
 			if(it.get(i).getExtendedTax() == true) {
-				System.out.println(String.format("1 imported %s at %f ", it.get(i).getName(), it.get(i).getPrice()));
+				System.out.println(String.format("1 imported %s at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
 			}
 			else {
-				System.out.println(String.format("1 %s at %f ", it.get(i).getName(), it.get(i).getPrice()));
+				System.out.println(String.format("1 %s at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
 			}
 			
 			
@@ -78,9 +78,9 @@ public class Calculation {
 			finalPrice = finalPrice.add(it.get(i).getPrice()); 
 		}
 		
-		System.out.println(String.format("Sales Taxes: %f", salesTaxes));
+		System.out.println(String.format("Sales Taxes: %.2f", salesTaxes));
 		//System.out.println(salesTaxes);
-		System.out.println(String.format("%f", finalPrice));
+		System.out.println(String.format("%.2f", finalPrice));
 	}
 	
 }
