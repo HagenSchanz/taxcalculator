@@ -8,8 +8,10 @@ public class Item {
 	private BigDecimal price;
 	private boolean basicTax;
 	private boolean extendedTax;
-	//added to calculate/print salestax in class Calculation, function printBill
-	private BigDecimal salesTax = new BigDecimal("0.00");
+	//added to calculate/print salesTax in class Calculation, function printBill
+	private BigDecimal salesTax;
+	//added to fix issues with extendedTax calculation in class Calculation function calculateFinalPrice
+	private BigDecimal exTax;
 	
 	public Item(String itemName, BigDecimal itemPrice, boolean bT, boolean eT) {
 		this.Name = itemName;
@@ -31,6 +33,7 @@ public class Item {
 	}
 	
 	public void setPrice(BigDecimal itemPrice) {
+		//this.price = new BigDecimal(itemPrice.toString());
 		this.price = itemPrice;
 	}
 	
@@ -59,10 +62,36 @@ public class Item {
 	}
 	
 	public BigDecimal getSalesTax() {
-		return this.salesTax;
+		BigDecimal retVal;
+		if(this.salesTax != null) {
+			retVal = this.salesTax;
+		}
+		else {
+			retVal = new BigDecimal("0.00");
+		}
+		
+		return retVal;
 	}
 	
 	public void setSalesTax(BigDecimal sT) {
+		//this.salesTax = new BigDecimal(sT.toString());
 		this.salesTax = sT;
+	}
+	
+	public BigDecimal getExTax() {
+		BigDecimal retVal;
+		if(this.exTax != null) {
+			retVal = this.exTax;
+		}
+		else {
+			retVal = new BigDecimal("0.00");
+		}
+		
+		return retVal;
+	}
+	
+	public void setExTax(BigDecimal exT) {
+	
+		this.exTax = exT;
 	}
 }

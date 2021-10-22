@@ -1,0 +1,61 @@
+package taxcalculator;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
+public class Calculation {
+	
+	//normally never changes, set by requirements of the coding assignment
+	// 10%
+	private BigDecimal baseTaxrate = new BigDecimal("0.10");
+	//5%
+	private BigDecimal extendedTaxrate = new BigDecimal("0.05");
+	
+	//dosn't need a return, values get changed right into the object
+	public void calculateFinalPrice (ArrayList<Item> it) {
+			
+		//foreach not working, for(int i : it)
+		for(int i = 0; i < it.size(); i++){
+			if(it.get(i).getBasicTax() == true) {
+				
+				//sets salesTax to price multiplied with baseTaxrate
+				it.get(i).setSalesTax(it.get(i).getPrice().multiply(this.baseTaxrate));
+				//added salesTax to price
+				//it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getSalesTax()));
+			}
+			
+			
+			if(it.get(i).getExtendedTax() == true) {
+				
+				//sets price to price multiplied with extendedTaxrate
+				it.get(i).setPrice(it.get(i).getPrice().multiply(this.extendedTaxrate));
+			}
+			
+		}
+		
+	}
+	
+	/*puts out multiple items of same type and price as 1item, 1item, 1item and not as 3items, works this way, maybe change later ->high work on code 
+	for just a bit better program, could work more easy if DB or JSON is implemented*/
+	public void printBill(ArrayList<Item> it) {
+		
+		BigDecimal finalPrice = new BigDecimal("0.00");
+		BigDecimal salesTaxes = new BigDecimal("0.00");
+		
+		calculateFinalPrice(it);
+		
+		for(int i = 0; i < it.size(); i++) {
+			
+			System.out.println(String.format("1 %S at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
+			if(it.get(i).getExtendedTax() == true) {
+				salesTaxes.add(it.get(i).getSalesTax());
+			}
+			
+			finalPrice = finalPrice.add(it.get(i).getPrice()); 
+		}
+		
+		System.out.println(String.format("%.2f", salesTaxes));
+		System.out.println(String.format("%.2f", finalPrice));
+	}
+	
+}

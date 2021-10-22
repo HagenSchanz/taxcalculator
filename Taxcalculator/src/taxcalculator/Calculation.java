@@ -28,11 +28,13 @@ public class Calculation {
 			if(it.get(i).getExtendedTax() == true) {
 				
 				//sets price to price multiplied with extendedTaxrate
-				it.get(i).setPrice(it.get(i).getPrice().multiply(this.extendedTaxrate));
+				it.get(i).setExTax(it.get(i).getPrice().multiply(this.extendedTaxrate));
+				it.get(i).setPrice(it.get(i).getPrice().add(it.get(i).getExTax()));
 			}
 			
 		}
-		
+
+
 	}
 	
 	/*puts out multiple items of same type and price as 1item, 1item, 1item and not as 3items, works this way, maybe change later ->high work on code 
@@ -47,14 +49,15 @@ public class Calculation {
 		for(int i = 0; i < it.size(); i++) {
 			
 			System.out.println(String.format("1 %S at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
-			if(it.get(i).getExtendedTax() == true) {
-				salesTaxes.add(it.get(i).getSalesTax());
+			if(it.get(i).getBasicTax() == true) {
+				salesTaxes = salesTaxes.add(it.get(i).getSalesTax());
 			}
 			
 			finalPrice = finalPrice.add(it.get(i).getPrice()); 
 		}
 		
 		System.out.println(String.format("%.2f", salesTaxes));
+		//System.out.println(salesTaxes);
 		System.out.println(String.format("%.2f", finalPrice));
 	}
 	

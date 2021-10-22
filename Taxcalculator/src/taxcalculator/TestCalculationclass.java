@@ -30,9 +30,17 @@ public class TestCalculationclass {
 		Item impChocolate = new Item("imported box of chocolates", new BigDecimal("10.00"), false, true);
 		Item impPerfume = new Item("imported bottle of perfume", new BigDecimal("47.50"), true, true);
 		
+		//System.out.println(impChocolate.getPrice());
+		//System.out.println(String.format("%.2f", impChocolate.getPrice()));
+		
 		Output2.add(impChocolate);
 		Output2.add(impPerfume);
 		
+		//System.out.println(Output2.get(0).getPrice());
+		
+		//Calculation cal2 = new Calculation();
+		
+		//cal2.printBill(Output2);
 		cal.printBill(Output2);
 		System.out.println("\n\n");
 		
@@ -43,7 +51,7 @@ public class TestCalculationclass {
 		Item impPerfume2 = new Item("imported bottle of perfume", new BigDecimal("27.99"), true, true);
 		Item perfume = new Item("imported bottle of perfume", new BigDecimal("18.99"), true, false);
 		Item pills = new Item("packet of headache pills", new BigDecimal("9.75"), false, false);
-		Item impChocolate2 = new Item("box of imported chocolates", new BigDecimal("47.50"), false, true);
+		Item impChocolate2 = new Item("box of imported chocolates", new BigDecimal("11.25"), false, true);
 		
 		Output3.add(impPerfume2);
 		Output3.add(perfume);
