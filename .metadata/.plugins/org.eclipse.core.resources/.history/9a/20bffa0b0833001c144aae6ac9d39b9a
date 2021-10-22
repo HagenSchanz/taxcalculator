@@ -11,7 +11,7 @@ public class TestCalculationclass {
 		//Test following coding assigment I/O 1:
 		ArrayList<Item> Output1= new ArrayList<Item>();
 		
-		Item book = new Item("book", new BigDecimal("12.49"), false, false);
+		Item book = new Item("Book", new BigDecimal("12.49"), false, false);
 		Item musicCD = new Item("music CD", new BigDecimal("14.99"), true, false);
 		Item chocolate = new Item("chocolate bar", new BigDecimal("0.85"), false, false);
 		

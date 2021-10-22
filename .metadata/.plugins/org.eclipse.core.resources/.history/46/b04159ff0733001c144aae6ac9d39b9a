@@ -51,10 +51,10 @@ public class Calculation {
 			
 			//to add to imported goods, so you don't have to add this to the item name itself anymore
 			if(it.get(i).getExtendedTax() == true) {
-				System.out.println(String.format("1 imported %s at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
+				System.out.println(String.format("1 Imported %S at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
 			}
 			else {
-				System.out.println(String.format("1 %s at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
+				System.out.println(String.format("1 %S at %.2f ", it.get(i).getName(), it.get(i).getPrice()));
 			}
 			
 			

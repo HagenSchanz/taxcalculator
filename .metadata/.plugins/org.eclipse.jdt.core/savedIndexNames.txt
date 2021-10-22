@@ -1,3 +1,2 @@
 INDEX VERSION 1.131+G:\BEWERBUNGEN\itemis\Workspace\.metadata\.plugins\org.eclipse.jdt.core
-630396405.index
 1549515899.index
