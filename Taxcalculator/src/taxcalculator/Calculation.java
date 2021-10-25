@@ -66,10 +66,10 @@ public class Calculation {
 			
 			//to add to imported goods, so you don't have to add this to the item name itself anymore
 			if(it.get(i).getExtendedTax() == true) {
-				System.out.println(String.format("1 imported %s at %f ", it.get(i).getName(), it.get(i).getPrice()));
+				System.out.println(String.format("1 imported %s at %02.02f ", it.get(i).getName(), it.get(i).getPrice()));
 			}
 			else {
-				System.out.println(String.format("1 %s at %f ", it.get(i).getName(), it.get(i).getPrice()));
+				System.out.println(String.format("1 %s at %02.02f ", it.get(i).getName(), it.get(i).getPrice()));
 			}
 			
 			
@@ -84,14 +84,25 @@ public class Calculation {
 			finalPrice = finalPrice.add(it.get(i).getPrice()); 
 		}
 		
-		System.out.println(String.format("Sales Taxes: %f", salesTaxes));
+		System.out.println(String.format("Sales Taxes: %02.02f", salesTaxes));
 		//System.out.println(salesTaxes);
-		System.out.println(String.format("%f", finalPrice));
+		System.out.println(String.format("%02.02f", finalPrice));
 	}
 
 	public BigDecimal roundPrice(BigDecimal price) {
+			
+			BigDecimal divVal = new BigDecimal("0.05");
+			BigDecimal toRound;
+			BigDecimal multValue =  new BigDecimal("1000.00");
+			BigDecimal roundValue = new BigDecimal("10.0");
+			BigDecimal zero = new BigDecimal("0.00");
+			if(price.multiply(multValue).remainder(roundValue).compareTo(zero) != 0) {
+				toRound = price.divide(divVal, 0, RoundingMode.UP).multiply(divVal);
+			}
+			else {
+				toRound = price;
+			}
 		
-			BigDecimal toRound = price.round(new MathContext(4,RoundingMode.HALF_UP));
 			return toRound;
 		
 	}
